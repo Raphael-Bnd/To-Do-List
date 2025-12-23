@@ -23,4 +23,10 @@ Vue.createApp({
       }
     },
   },
+  computed: {
+    // Computed property para contar os caracteres do novo item
+    txtCount() {
+      return this.newItemText.length + '/20' + ' characters';
+    },
+  },
 }).mount('#app');

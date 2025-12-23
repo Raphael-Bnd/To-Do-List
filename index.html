@@ -21,6 +21,7 @@
               id="text-novo-item"
               @keyup.enter="saveNewItem"
               v-model="newItemText"
+              maxlength="20"
             />
             <div>
               <input
@@ -32,11 +33,9 @@
               <label for="is-importante"> Priority</label><br />
             </div>
             <!-- um botão para salvar o novo item -->
-            <button @click="saveNewItem" v-if="newItemText.length">
-              Save
-            </button>
+            <button @click="saveNewItem" v-if="newItemText.length">Save</button>
           </div>
-          <p id="count"></p>
+          <p id="count">{{ txtCount }}</p>
         </div>
 
         <!-- Lista de itens -->
