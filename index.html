@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODOLIST</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="wrapper">
+        <h1>TODO.LIST</h1>
+        <div id="form-wrapper">
+          <div id="o-form">
+            <!-- um input para digitar o novo item -->
+            <input type="text" id="text-novo-item" v-model="newItemText" />
+            <div>
+              <input
+                type="checkbox"
+                id="is-importante"
+                v-model="newPriorityItem"
+              />
+              <!-- um checkbox para marcar o item como prioritário -->
+              <label for="is-importante"> Priority</label><br />
+            </div>
+            <!-- um botão para salvar o novo item -->
+            <button @click="saveNewItem">Save</button>
+          </div>
+          <p id="count"></p>
+        </div>
+
+        <div id="list-wrapper">
+          <div
+            class="item"
+            :class="{important : item.important, done : item.done}"
+            v-for="item in list"
+            @click="item.done = !item.done"
+          >
+            <p class="texto-item">{{item.text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
