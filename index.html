@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,12 @@
         <div id="form-wrapper">
           <div id="o-form">
             <!-- um input para digitar o novo item -->
-            <input type="text" id="text-novo-item" v-model="newItemText" />
+            <input
+              type="text"
+              id="text-novo-item"
+              @keyup.enter="saveNewItem"
+              v-model="newItemText"
+            />
             <div>
               <input
                 type="checkbox"
@@ -27,17 +32,21 @@
               <label for="is-importante"> Priority</label><br />
             </div>
             <!-- um botão para salvar o novo item -->
-            <button @click="saveNewItem">Save</button>
+            <button @click="saveNewItem" v-if="newItemText.length">
+              Save
+            </button>
           </div>
           <p id="count"></p>
         </div>
 
+        <!-- Lista de itens -->
         <div id="list-wrapper">
           <div
             class="item"
             :class="{important : item.important, done : item.done}"
             v-for="item in list"
             @click="item.done = !item.done"
+            :key="item.id"
           >
             <p class="texto-item">{{item.text}}</p>
           </div>
