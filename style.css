@@ -181,6 +181,24 @@ button:hover {
   -ms-hyphens: auto;
 }
 
+.xButton {
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 25px;
+  font-weight: 800;
+  color: white;
+  background-color: red;
+  border: red solid 0.4rem;
+  border-radius: 90px;
+  user-select: none;
+}
+
 @media only screen and (max-width: 600px) {
   #list-wrapper {
     grid-template-columns: 1fr 1fr;

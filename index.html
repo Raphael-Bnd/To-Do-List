@@ -43,11 +43,12 @@
           <div
             class="item"
             :class="{important : item.important, done : item.done}"
-            v-for="item in list"
             @click="item.done = !item.done"
+            v-for="(item, index) in list"
             :key="item.id"
           >
-            <p class="texto-item">{{item.text}}</p>
+            <div @click="excludeItem(index)" class="xButton">X</div>
+            <p class="texto-item">{{ item.text }}</p>
           </div>
         </div>
       </div>

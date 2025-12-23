@@ -22,6 +22,9 @@ Vue.createApp({
         this.newPriorityItem = false;
       }
     },
+    excludeItem(index) {
+      this.list.splice(index, 1);
+    },
   },
   computed: {
     // Computed property para contar os caracteres do novo item
