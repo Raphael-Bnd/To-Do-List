@@ -22,6 +22,7 @@ Vue.createApp({
         this.newPriorityItem = false;
       }
     },
+    // Método para excluir um item da lista
     excludeItem(index) {
       this.list.splice(index, 1);
     },
